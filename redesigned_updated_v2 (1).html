@@ -1,0 +1,1914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PM International School – Dungarpur's First AI-Powered School</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    /* Primary Colors from Logo */
+    --navy: #0a1a3a;
+    --navy-dark: #0a1a3a;
+    --gold: #d4a574;
+    --gold-light: #e8c9a0;
+    --cream: #f5f1e8;
+    --white: #ffffff;
+    
+    /* Secondary & Supporting Colors */
+    --teal: #2a6f7f;
+    --terracotta: #c85a3a;
+    --sage: #d4e8e0;
+    --charcoal: #1a2340;
+    
+    /* Text Colors */
+    --text: #1a2340;
+    --muted: #6b7a99;
+    --light-gray: #9ca3af;
+    
+    /* Legacy (for compatibility) */
+    --sky: #2a6f7f;
+    --mint: #d4e8e0;
+    --coral: #c85a3a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAVIGATION ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 5%;
+    height: auto;
+    background: rgba(11,31,74,0.98);
+    backdrop-filter: blur(12px);
+    border-bottom: 3px solid var(--gold);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 18px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .nav-logo-icon {
+    width: 70px; height: 70px; border-radius: 50%;
+    background: transparent;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .nav-logo-icon img {
+    width: 100%; height: 100%; object-fit: contain;
+  }
+
+  .nav-logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 1.1;
+    letter-spacing: 0.8px;
+  }
+
+  .nav-logo-text span {
+    color: var(--gold);
+    font-size: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 3px;
+  }
+
+  .nav-links {
+    display: flex; gap: 40px; list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: rgba(245,241,232,0.85);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--gold);
+  }
+
+  .nav-cta {
+    background: linear-gradient(135deg, var(--gold), #c89560);
+    color: var(--white);
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(212,165,116,0.3);
+  }
+
+  .nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212,165,116,0.5);
+  }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, var(--navy) 0%, #133070 50%, #1a5a7f 100%);
+    display: flex;
+    align-items: center;
+    padding: 120px 5% 80px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 72px;
+  }
+
+  .hero-bg-circles {
+    position: absolute; inset: 0; pointer-events: none;
+  }
+
+  .hero-bg-circles::before {
+    content: '';
+    position: absolute; top: -100px; right: -50px;
+    width: 700px; height: 700px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,165,116,0.12) 0%, transparent 70%);
+  }
+
+  .hero-bg-circles::after {
+    content: '';
+    position: absolute; bottom: -100px; left: -80px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,165,116,0.1) 0%, transparent 70%);
+  }
+
+  .hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-content {
+    max-width: 600px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, rgba(212,165,116,0.25), rgba(232,201,160,0.15));
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    color: #ffe8b8;
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-size: 0.88rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    animation: fadeUp 0.6s ease both, sparkleGlow 2.5s ease-in-out infinite;
+    position: relative;
+    overflow: visible;
+    box-shadow: 0 0 20px rgba(212,165,116,0.4), 0 0 60px rgba(212,165,116,0.15), inset 0 0 20px rgba(212,165,116,0.1);
+  }
+
+  .hero-badge::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 100px;
+    background: linear-gradient(90deg, #d4a574, #ffe8b8, #c89560, #ffe8b8, #d4a574);
+    background-size: 200% 100%;
+    animation: shimmerBorder 2.5s linear infinite;
+    z-index: -1;
+  }
+
+  .hero-badge::after {
+    content: '✦';
+    position: absolute;
+    right: -14px;
+    top: -10px;
+    font-size: 1.1rem;
+    color: #ffe8b8;
+    animation: twinkle 1.4s ease-in-out infinite;
+    text-shadow: 0 0 8px rgba(255,232,184,0.9);
+  }
+
+  @keyframes shimmerBorder {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 0%; }
+  }
+
+  @keyframes sparkleGlow {
+    0%, 100% { box-shadow: 0 0 20px rgba(212,165,116,0.4), 0 0 60px rgba(212,165,116,0.15); }
+    50% { box-shadow: 0 0 35px rgba(212,165,116,0.7), 0 0 80px rgba(212,165,116,0.3); }
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+    50% { opacity: 0.4; transform: scale(1.5) rotate(20deg); }
+  }
+
+  .hero-badge .sparkle-left {
+    position: absolute;
+    left: -12px;
+    top: -8px;
+    font-size: 0.9rem;
+    color: #ffe8b8;
+    animation: twinkle 1.8s ease-in-out infinite 0.4s;
+    text-shadow: 0 0 8px rgba(255,232,184,0.9);
+  }
+
+  .hero-badge .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.2rem, 8vw, 6rem);
+    color: var(--cream);
+    line-height: 1.05;
+    margin-bottom: 24px;
+    animation: fadeUp 0.6s 0.1s ease both;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+  }
+
+  .hero-title em {
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(245,241,232,0.85);
+    line-height: 1.8;
+    margin-bottom: 48px;
+    animation: fadeUp 0.6s 0.2s ease both;
+    max-width: 500px;
+    font-weight: 400;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold), #c89560);
+    color: var(--white);
+    padding: 16px 36px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 6px 20px rgba(212,165,116,0.4);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(212,165,116,0.6);
+  }
+
+  .btn-outline {
+    border: 2.5px solid rgba(245,241,232,0.4);
+    color: var(--cream);
+    padding: 14px 34px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    background: rgba(245,241,232,0.1);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 50px;
+    margin-top: 60px;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+
+  .stat {
+    text-align: left;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--gold-light);
+    font-weight: 900;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 4px;
+    font-weight: 600;
+  }
+
+  .hero-visual {
+    position: relative;
+    animation: fadeUp 0.8s 0.2s ease both;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .hero-logo-display {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .hero-logo-display img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .hero-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 32px;
+    padding: 48px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 550px;
+  }
+
+  .ai-icon-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .ai-icon-item {
+    background: rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 24px 12px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-icon-item:hover {
+    transform: translateY(-6px);
+    background: rgba(255,255,255,0.12);
+  }
+
+  .ai-icon-item .label {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+
+  .hero-card-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-card-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+    font-weight: 400;
+  }
+
+  .opening-banner {
+    background: linear-gradient(90deg, var(--gold), #c89560);
+    color: var(--white);
+    padding: 14px 22px;
+    border-radius: 12px;
+    margin-top: 24px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    text-align: center;
+    letter-spacing: 0.3px;
+    box-shadow: 0 4px 15px rgba(212,165,116,0.3);
+  }
+
+  /* ── SECTIONS SHARED ── */
+  section {
+    padding: 100px 5%;
+  }
+
+  .section-tag {
+    display: inline-block;
+    background: rgba(212,165,116,0.1);
+    color: var(--navy);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+  }
+
+  .section-title em {
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  .section-sub {
+    font-size: 1.05rem;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 600px;
+    font-weight: 400;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--white);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .about-img-wrap {
+    position: relative;
+  }
+
+  .about-img-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--teal) 100%);
+    border-radius: 28px;
+    z-index: 0;
+    opacity: 0.15;
+  }
+
+  .about-img-block {
+    background: linear-gradient(135deg, var(--navy) 0%, #133070 100%);
+    border-radius: 24px;
+    padding: 60px 50px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    box-shadow: 0 12px 40px rgba(10,26,58,0.2);
+  }
+
+  .about-img-block .school-logo-big {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .about-img-block .school-logo-big img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .about-img-block h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--cream);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  .about-img-block p {
+    color: rgba(245,241,232,0.8);
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+  }
+
+  .tagline {
+    background: rgba(212,165,116,0.2);
+    color: var(--gold-light);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block;
+  }
+
+  .about-text {
+    max-width: 600px;
+  }
+
+  .about-features {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-top: 40px;
+  }
+
+  .about-feat {
+    display: flex;
+    gap: 20px;
+  }
+
+  .about-feat-icon {
+    font-size: 2.2rem;
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+  }
+
+  .about-feat-text h4 {
+    font-size: 1.1rem;
+    color: var(--navy);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  .about-feat-text p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* ── SPECIAL HIGHLIGHTS ── */
+  #highlights {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 80px 5%;
+  }
+
+  .highlights-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+
+  .highlight-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(212,165,116,0.3);
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), background 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+
+  .highlight-card:hover {
+    transform: scale(1.18) translateY(-8px);
+    background: rgba(212,165,116,0.18);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    border-color: var(--gold);
+    z-index: 10;
+    position: relative;
+  }
+
+  .highlight-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ── CLASSES ── */
+  #classes {
+    background: var(--cream);
+  }
+
+  .classes-header {
+    max-width: 700px;
+    margin-bottom: 60px;
+  }
+
+  .classes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .class-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 36px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
+    border-left: 4px solid var(--gold);
+    text-align: left;
+  }
+
+  .class-card:hover {
+    transform: scale(1.06) translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  }
+
+  .class-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--navy);
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .class-card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  /* ── WHY CHOOSE ── */
+  #why {
+    background: var(--white);
+  }
+
+  .why-intro {
+    max-width: 700px;
+    margin-bottom: 60px;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .why-card {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 36px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+
+  .why-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+  }
+
+  .why-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--navy);
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .why-card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* ── APPROACH ── */
+  #approach {
+    background: var(--cream);
+  }
+
+  .approach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .approach-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 40px;
+  }
+
+  .approach-item {
+    display: flex;
+    gap: 24px;
+  }
+
+  .approach-num {
+    background: linear-gradient(135deg, var(--gold), #c89560);
+    color: var(--white);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .approach-item h4 {
+    font-size: 1.1rem;
+    color: var(--navy);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  .approach-item p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .approach-visual {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 50px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  }
+
+  .approach-visual h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--navy);
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .approach-visual p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+  .approach-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .tag {
+    background: rgba(212,165,116,0.15);
+    color: var(--navy);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  /* ── FACILITIES ── */
+  #facilities {
+    background: var(--white);
+  }
+
+  .facilities-header {
+    max-width: 700px;
+    margin-bottom: 60px;
+  }
+
+  .facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .fac-card {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 36px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+
+  .fac-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+  }
+
+  .fac-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--navy);
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .fac-card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* ── ADMISSION ── */
+  #admission {
+    background: var(--cream);
+  }
+
+  .steps-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    max-width: 1400px;
+    margin: 60px auto 0;
+  }
+
+  .step {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    transition: transform 0.3s;
+  }
+
+  .step:hover {
+    transform: translateY(-4px);
+  }
+
+  .step-num {
+    background: linear-gradient(135deg, var(--gold), #c89560);
+    color: var(--white);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin: 0 auto 16px;
+  }
+
+  .step h4 {
+    font-size: 1.1rem;
+    color: var(--navy);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  .step p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--white);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 40px;
+  }
+
+  .contact-item {
+    display: flex;
+    gap: 20px;
+  }
+
+  .contact-item h4 {
+    font-size: 1.05rem;
+    color: var(--navy);
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+
+  .contact-item p, .contact-item a {
+    color: var(--muted);
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .contact-item a:hover {
+    color: var(--gold);
+  }
+
+  .contact-form-wrap {
+    background: var(--cream);
+    border-radius: 20px;
+    padding: 50px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  }
+
+  .contact-form-wrap h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--navy);
+    margin-bottom: 32px;
+    font-weight: 700;
+  }
+
+  .form-group {
+    margin-bottom: 24px;
+  }
+
+  .form-group label {
+    display: block;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid rgba(212,165,116,0.3);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    transition: border-color 0.3s;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(212,165,116,0.1);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .form-submit {
+    background: linear-gradient(135deg, var(--gold), #c89560);
+    color: var(--white);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 100%;
+  }
+
+  .form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(212,165,116,0.4);
+  }
+
+  .form-success {
+    display: none;
+    background: rgba(76,175,80,0.1);
+    color: #2e7d32;
+    padding: 16px;
+    border-radius: 8px;
+    margin-top: 16px;
+    font-size: 0.9rem;
+  }
+
+  .form-success.show {
+    display: block;
+  }
+
+  /* ── MAP SECTION ── */
+  #map-section {
+    background: var(--cream);
+    padding: 100px 5%;
+  }
+
+  .map-header {
+    max-width: 700px;
+    margin-bottom: 60px;
+  }
+
+  .map-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    border: 3px solid var(--gold);
+  }
+
+  .map-container iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    display: block;
+  }
+
+  .map-info {
+    background: var(--white);
+    padding: 24px;
+    text-align: center;
+    border-top: 2px solid var(--gold);
+  }
+
+  .map-info p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+
+  .map-info a {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s;
+  }
+
+  .map-info a:hover {
+    color: var(--navy);
+  }
+
+  /* ── WHATSAPP BUTTON ── */
+  .wa-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    z-index: 99;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+  }
+
+  .wa-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 60px 5%;
+    text-align: center;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .footer-logo-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .footer-logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+  }
+
+  .footer-logo-text span {
+    color: var(--gold);
+  }
+
+  .footer-tagline {
+    color: rgba(245,241,232,0.8);
+    font-size: 0.95rem;
+    margin-bottom: 32px;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    color: rgba(245,241,232,0.8);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover {
+    color: var(--gold);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(245,241,232,0.2);
+    padding-top: 24px;
+    color: rgba(245,241,232,0.6);
+    font-size: 0.85rem;
+  }
+
+  /* ── SOCIAL LINKS ── */
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 24px 0;
+  }
+
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(212,165,116,0.2);
+    border-radius: 50%;
+    color: var(--gold);
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s;
+  }
+
+  .social-link:hover {
+    background: var(--gold);
+    color: var(--white);
+    transform: translateY(-3px);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero-container {
+      grid-template-columns: 1fr;
+    }
+
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .approach-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    nav {
+      padding: 10px 4%;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .nav-logo-text {
+      font-size: 1.2rem;
+    }
+
+    .nav-logo-icon {
+      width: 50px;
+      height: 50px;
+    }
+
+    .hero-stats {
+      gap: 30px;
+    }
+
+    #hero {
+      margin-top: 60px;
+      padding: 80px 5% 60px;
+      border-radius: 0;
+    }
+
+    .hero-card {
+      padding: 28px 20px;
+      border-radius: 20px;
+    }
+
+    .hero-logo-display {
+      width: 180px;
+      height: 180px;
+    }
+
+    section {
+      padding: 60px 5%;
+      border-radius: 0;
+    }
+
+    .map-container iframe {
+      height: 280px;
+    }
+
+    .map-container {
+      border-radius: 16px;
+    }
+
+    .contact-form-wrap {
+      padding: 28px 20px;
+      border-radius: 16px;
+    }
+
+    .about-img-block {
+      padding: 40px 28px;
+      border-radius: 20px;
+    }
+
+    .approach-visual {
+      padding: 32px 20px;
+      border-radius: 16px;
+    }
+
+    .highlights-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .highlight-card {
+      padding: 20px 14px;
+      border-radius: 12px;
+    }
+
+    .classes-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .class-card {
+      border-radius: 14px;
+    }
+
+    .class-card:hover {
+      transform: scale(1.03) translateY(-4px);
+    }
+
+    .steps-row {
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .step {
+      padding: 22px 16px;
+      border-radius: 14px;
+    }
+
+    .footer-links {
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero-badge {
+      font-size: 0.72rem;
+      padding: 10px 18px;
+      letter-spacing: 1.2px;
+    }
+
+    .btn-primary, .btn-outline {
+      padding: 13px 24px;
+      font-size: 0.88rem;
+      border-radius: 10px;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hero-actions a {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .wa-float {
+      bottom: 16px;
+      right: 16px;
+      width: 52px;
+      height: 52px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .highlights-container {
+      grid-template-columns: 1fr;
+    }
+
+    .steps-row {
+      grid-template-columns: 1fr;
+    }
+
+    .why-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .facilities-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-stats {
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .section-title {
+      font-size: 1.9rem;
+    }
+
+    .contact-form-wrap {
+      padding: 22px 16px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <div class="nav-logo-icon">
+      <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663491606072/JFzZVrc3vhwCJvAWh6E8qN/WhatsAppImage2026-03-30at10.21.33PM_b21cae36.jpeg" alt="PM International School Logo" />
+    </div>
+    <div class="nav-logo-text">PM <span>International</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#classes">Classes</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#facilities">Facilities</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://www.instagram.com/pm_international_school/" target="_blank" style="display:inline-flex;align-items:center;gap:6px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/></svg>Instagram</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Enroll Now</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-circles"></div>
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="sparkle-left">✦</span>
+        <span class="dot"></span>
+        Dungarpur's First AI School
+      </div>
+      <h1 class="hero-title">
+        Future-Ready Education <em>Powered by AI</em>
+      </h1>
+      <p class="hero-sub">
+        PM International School is Dungarpur's first AI-integrated school, combining innovative technology with warm, personalized education. We prepare children for tomorrow while celebrating the joy of learning today.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Start Enrollment</a>
+        <a href="#about" class="btn-outline">Learn More</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">1st</div>
+          <div class="stat-label">AI School in Dungarpur</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">6+</div>
+          <div class="stat-label">Classes Offered</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-logo-display">
+        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663491606072/JFzZVrc3vhwCJvAWh6E8qN/WhatsAppImage2026-03-30at10.21.33PM_b21cae36.jpeg" alt="PM International School Logo" />
+      </div>
+      <div class="hero-card">
+        <div class="ai-icon-grid">
+          <div class="ai-icon-item">
+            <span class="label">AI Learning</span>
+          </div>
+          <div class="ai-icon-item">
+            <span class="label">Innovation</span>
+          </div>
+          <div class="ai-icon-item">
+            <span class="label">Excellence</span>
+          </div>
+          <div class="ai-icon-item">
+            <span class="label">Community</span>
+          </div>
+          <div class="ai-icon-item">
+            <span class="label">Growth</span>
+          </div>
+          <div class="ai-icon-item">
+            <span class="label">Care</span>
+          </div>
+        </div>
+        <h3 class="hero-card-title">Why Choose PM?</h3>
+        <p class="hero-card-sub">Cutting-edge AI integration meets compassionate teaching. Every child thrives in our supportive, innovative environment.</p>
+        <div class="opening-banner">Admissions Open – Limited Seats Available!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIAL HIGHLIGHTS -->
+<section id="highlights">
+  <div class="map-header" style="text-align: center; margin-bottom: 50px;">
+    <span class="section-tag" style="background: rgba(212,165,116,0.2); color: var(--gold);">Our Excellence</span>
+    <h2 class="section-title" style="color: var(--cream);">Special <em>Highlights</em></h2>
+  </div>
+  <div class="highlights-container">
+    <div class="highlight-card">
+      <h4>Dungarpur No.1 pre primary School</h4>
+    </div>
+    <div class="highlight-card">
+      <h4>AI Powered & Robotic School</h4>
+    </div>
+    <div class="highlight-card">
+      <h4>Fully AC Classroom</h4>
+    </div>
+    <div class="highlight-card">
+      <h4>International Imported Toys</h4>
+    </div>
+    <div class="highlight-card">
+      <h4>Hightech Interior Class room</h4>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap">
+      <div class="about-img-block">
+        <div class="school-logo-big">
+          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663491606072/JFzZVrc3vhwCJvAWh6E8qN/WhatsAppImage2026-03-30at10.21.33PM_b21cae36.jpeg" alt="PM International School Logo" />
+        </div>
+        <h3>PM International School</h3>
+        <p>Dungarpur's Premier AI-Integrated Learning Center</p>
+        <div class="tagline">First AI-Powered School in Dungarpur</div>
+      </div>
+    </div>
+    <div class="about-text">
+      <span class="section-tag">About Us</span>
+      <h2 class="section-title">Education That <em>Future-Proofs</em> Your Child</h2>
+      <p class="section-sub">PM International School combines the best of traditional values with cutting-edge AI technology. We believe every child deserves a joyful, safe, and inspiring educational journey—and we deliver exactly that through innovative pedagogy and genuine care.</p>
+      <div class="about-features">
+        <div class="about-feat">
+          <div class="about-feat-text">
+            <h4>AI-Integrated Curriculum</h4>
+            <p>Age-appropriate AI tools and smart classrooms develop logical thinking, problem-solving, and digital literacy from an early age.</p>
+          </div>
+        </div>
+        <div class="about-feat">
+          <div class="about-feat-text">
+            <h4>Experienced & Caring Teachers</h4>
+            <p>Every educator is trained in early childhood development and provides individual attention with warmth, patience, and genuine passion.</p>
+          </div>
+        </div>
+        <div class="about-feat">
+          <div class="about-feat-text">
+            <h4>Safe & Secure Campus</h4>
+            <p>CCTV surveillance, trained staff, rigorous hygiene standards, and comprehensive safety protocols ensure complete peace of mind.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLASSES -->
+<section id="classes">
+  <div class="classes-header">
+    <span class="section-tag">Our Programs</span>
+    <h2 class="section-title">Classes We <em>Offer</em></h2>
+    <p class="section-sub">Structured yet flexible curriculum tailored to each developmental stage—from first steps to foundational academics. Every class is designed to spark curiosity and build confidence.</p>
+  </div>
+  <div class="classes-grid">
+    <div class="class-card">
+      <h3>Playgroup</h3>
+      <p>Sensory play and early social skills through safe, joyful exploration and guided discovery.</p>
+    </div>
+    <div class="class-card">
+      <h3>Nursery</h3>
+      <p>Language development, colors, shapes, and early motor skills through play-based learning.</p>
+    </div>
+    <div class="class-card">
+      <h3>LKG</h3>
+      <p>Phonics, numbers, and hands-on activities to spark curiosity and build foundational skills.</p>
+    </div>
+    <div class="class-card">
+      <h3>UKG</h3>
+      <p>Reading readiness, numeracy foundations, and creative expression through diverse activities.</p>
+    </div>
+    <div class="class-card">
+      <h3>Class I</h3>
+      <p>Formal literacy, mathematics, environmental science, and introduction to AI basics.</p>
+    </div>
+    <div class="class-card">
+      <h3>Class II</h3>
+      <p>Advanced reading, problem-solving, digital learning tools, and AI-assisted projects.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section id="why">
+  <div class="why-intro">
+    <span class="section-tag">Why PM International</span>
+    <h2 class="section-title">Every Reason to <em>Choose Us</em></h2>
+    <p class="section-sub">We go beyond academics to raise confident, curious, and compassionate children who are ready for the future.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <h3>Experienced Teachers</h3>
+      <p>Qualified educators with deep training in early childhood development and AI-assisted teaching methods.</p>
+    </div>
+    <div class="why-card">
+      <h3>Child-Friendly Campus</h3>
+      <p>Colorful, spacious classrooms designed to make every child feel comfortable, safe, and excited to learn.</p>
+    </div>
+    <div class="why-card">
+      <h3>Balanced Development</h3>
+      <p>Academics, arts, physical activity, and moral values—all given equal importance every single day.</p>
+    </div>
+    <div class="why-card">
+      <h3>Parent Engagement</h3>
+      <p>Regular parent-teacher interactions ensure you're always involved in your child's growth journey.</p>
+    </div>
+    <div class="why-card">
+      <h3>AI-First Vision</h3>
+      <p>First school in Dungarpur to integrate AI into early education—preparing children for tomorrow, today.</p>
+    </div>
+    <div class="why-card">
+      <h3>Values & Discipline</h3>
+      <p>Strong emphasis on manners, respect, and character-building alongside every academic milestone.</p>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section id="approach">
+  <div class="approach-grid">
+    <div>
+      <span class="section-tag">Our Approach</span>
+      <h2 class="section-title">Learning That <em>Feels Like Fun</em></h2>
+      <p class="section-sub">Our pedagogy is rooted in joy. Every lesson is designed so children are engaged, confident, and eager for more.</p>
+      <div class="approach-list">
+        <div class="approach-item">
+          <div class="approach-num">1</div>
+          <div>
+            <h4>Play-Based & Activity-Based Learning</h4>
+            <p>Children absorb concepts naturally through guided play and hands-on activities that make learning joyful.</p>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-num">2</div>
+          <div>
+            <h4>Interactive Storytelling & Role Play</h4>
+            <p>Language and imagination flourish through immersive, creative storytelling sessions and dramatic play.</p>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-num">3</div>
+          <div>
+            <h4>Communication & Confidence Building</h4>
+            <p>Every child is encouraged to speak, express, and grow their interpersonal and presentation skills.</p>
+          </div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-num">4</div>
+          <div>
+            <h4>Individual Attention for Every Child</h4>
+            <p>Small class sizes ensure no child is left behind or overlooked in their learning journey.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="approach-visual">
+      <h3>Curriculum Highlights</h3>
+      <p>A comprehensive, stress-free program covering all dimensions of early childhood development and modern skills.</p>
+      <div class="approach-tags">
+        <span class="tag">Early Literacy</span>
+        <span class="tag">Numeracy</span>
+        <span class="tag">Music & Dance</span>
+        <span class="tag">Creative Arts</span>
+        <span class="tag">Motor Skills</span>
+        <span class="tag">Values & Manners</span>
+        <span class="tag">Phonics</span>
+        <span class="tag">AI Basics</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITIES -->
+<section id="facilities">
+  <div class="facilities-header">
+    <span class="section-tag">Infrastructure</span>
+    <h2 class="section-title">World-Class <em>Facilities</em></h2>
+    <p class="section-sub">A campus built with children in mind—safe, clean, stimulating, and full of wonder.</p>
+  </div>
+  <div class="facilities-grid">
+    <div class="fac-card">
+      <h3>Colorful Classrooms</h3>
+      <p>Spacious, bright, and thoughtfully designed to spark curiosity and creativity in every child.</p>
+    </div>
+    <div class="fac-card">
+      <h3>Safe Play Area</h3>
+      <p>Outdoor play zones with age-appropriate equipment for physical activity and outdoor fun.</p>
+    </div>
+    <div class="fac-card">
+      <h3>Learning Materials</h3>
+      <p>Curated educational materials and kits for hands-on, experiential, and discovery-based learning.</p>
+    </div>
+    <div class="fac-card">
+      <h3>Clean Water & Hygiene</h3>
+      <p>Purified drinking water, clean washrooms, and regular sanitation protocols for health and safety.</p>
+    </div>
+    <div class="fac-card">
+      <h3>CCTV Surveillance</h3>
+      <p>Full campus monitoring so parents can always have complete peace of mind about their child's safety.</p>
+    </div>
+    <div class="fac-card">
+      <h3>First Aid & Child Safety</h3>
+      <p>Trained staff and first-aid readiness for every possible situation to ensure child welfare.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ADMISSION -->
+<section id="admission">
+  <span class="section-tag">Admissions 2025–26</span>
+  <h2 class="section-title">Simple <em>Admission Process</em></h2>
+  <p class="section-sub">Five easy steps to secure your child's bright future. Limited seats available—act fast!</p>
+  <div class="steps-row">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>Visit Campus</h4>
+      <p>Come see our school in person and experience our warm environment.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>Meet Counselor</h4>
+      <p>Discuss your child's needs and learning style with our team.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>Fill Form</h4>
+      <p>Complete the admission form with all required information.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4>Submit Docs</h4>
+      <p>Provide required documents for verification and enrollment.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <h4>Confirm</h4>
+      <p>Secure your child's seat and start their learning journey.</p>
+    </div>
+  </div>
+  <a href="#contact" class="btn-primary" style="margin: 40px auto 0; display: inline-flex;">Begin Enrollment Today</a>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div>
+      <span class="section-tag">Get in Touch</span>
+      <h2 class="section-title">We'd Love to <em>Hear from You</em></h2>
+      <p class="section-sub">Visit us or reach out—our team is happy to answer all your questions about admissions, curriculum, and your child's future.</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div>
+            <h4>Address</h4>
+            <p>Simalwara Road, Near Bori Bus Stand, Dungarpur, Rajasthan</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div>
+            <h4>Phone</h4>
+            <a href="tel:7470066999">7470066999</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div>
+            <h4>Email</h4>
+            <a href="/cdn-cgi/l/email-protection#beced3feced3d7d0cadbccd0dfcad7d1d0dfd2cdddd6d1d1d290d1ccd9"><span class="__cf_email__" data-cfemail="27574a67574a4e495342554946534e4849464b54444f48484b09485540">[email&#160;protected]</span></a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div>
+            <h4>Follow Us</h4>
+            <a href="https://www.instagram.com/pm_international_school/" target="_blank" style="display: inline-flex; align-items: center; gap: 8px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
+              </svg>
+              Instagram
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form-wrap">
+      <h3>Enquire About Admission</h3>
+      <div class="form-group">
+        <label>Parent's Name</label>
+        <input type="text" placeholder="Your full name" id="parentName"/>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="Your contact number" id="phone"/>
+      </div>
+      <div class="form-group">
+        <label>Class Interested In</label>
+        <select id="classSelect">
+          <option value="">Select a class</option>
+          <option>Playgroup</option>
+          <option>Nursery</option>
+          <option>LKG</option>
+          <option>UKG</option>
+          <option>Class I</option>
+          <option>Class II</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message (optional)</label>
+        <textarea placeholder="Any questions or special requirements..." id="message"></textarea>
+      </div>
+      <button class="form-submit" onclick="handleSubmit()">Send via WhatsApp</button>
+      <div class="form-success" id="successMsg">Opening WhatsApp with your enquiry pre-filled. If it doesn't open, <a href="https://wa.me/917470066999" target="_blank">click here</a>.</div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP SECTION -->
+<section id="map-section">
+  <div class="map-header">
+    <span class="section-tag">Our Location</span>
+    <h2 class="section-title">Find Us on the <em>Map</em></h2>
+    <p class="section-sub">Visit our campus at Simalwara Road, Dungarpur. Click the map to get directions via Google Maps.</p>
+  </div>
+  <div class="map-container">
+    <a href="https://www.google.com/maps/search/23°48'45.3%22N+73°41'17.4%22E" target="_blank" style="text-decoration: none; display: block;">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3631.5243894682!2d73.68816!3d23.812583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDQ4JzQ1LjMiTiA3M8KwNDEnMTcuNCJF!5e0!3m2!1sen!2sin!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </a>
+    <div class="map-info">
+      <p><strong>PM International School</strong> | Simalwara Road, Near Bori Bus Stand, Dungarpur, Rajasthan</p>
+
+      <a href="https://www.google.com/maps/search/23°48'45.3%22N+73°41'17.4%22E" target="_blank">Open in Google Maps</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<a href="https://wa.me/917470066999?text=Hello%20PM%20International%20School!%20I'd%20like%20to%20enquire%20about%20admission." target="_blank" class="wa-float" title="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
+    <path d="M16 2C8.268 2 2 8.268 2 16c0 2.478.675 4.8 1.85 6.788L2 30l7.418-1.822A13.94 13.94 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm7.07 19.49c-.297.835-1.73 1.595-2.373 1.692-.608.09-1.376.128-2.22-.14-.512-.163-1.169-.38-2.012-.744-3.54-1.528-5.854-5.1-6.03-5.333-.176-.234-1.434-1.907-1.434-3.638 0-1.73.907-2.583 1.228-2.937.32-.354.7-.443.933-.443.234 0 .468.002.673.012.216.01.505-.082.79.603.298.707 1.012 2.437 1.1 2.613.088.175.147.38.03.614-.118.234-.177.38-.354.585-.176.205-.37.458-.528.615-.176.175-.36.365-.154.717.205.353.912 1.504 1.958 2.435 1.344 1.198 2.478 1.568 2.83 1.744.354.175.56.147.767-.088.205-.235.878-1.024 1.112-1.376.234-.353.468-.294.79-.176.32.117 2.05.967 2.403 1.142.353.176.588.264.675.41.088.147.088.847-.21 1.682z"/>
+  </svg>
+</a>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <div class="footer-logo-icon">
+      <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663491606072/JFzZVrc3vhwCJvAWh6E8qN/WhatsAppImage2026-03-30at10.21.33PM_b21cae36.jpeg" alt="PM International School Logo" />
+    </div>
+    <div class="footer-logo-text">PM <span>International</span> School</div>
+  </div>
+  <p class="footer-tagline">Dungarpur's First AI-Integrated School | Future-Ready Education Today</p>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#classes">Classes</a>
+    <a href="#why">Why Us</a>
+    <a href="#facilities">Facilities</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 PM International School. All rights reserved. | Simalwara Road, Dungarpur, Rajasthan</p>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function handleSubmit() {
+  const parentName = document.getElementById('parentName').value;
+  const phone = document.getElementById('phone').value;
+  const classSelect = document.getElementById('classSelect').value;
+  const message = document.getElementById('message').value;
+
+  if (!parentName || !phone || !classSelect) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+
+  const whatsappMessage = `Hello PM International School! I'd like to enquire about admission.\n\nParent Name: ${parentName}\nPhone: ${phone}\nClass Interested: ${classSelect}\nMessage: ${message || 'N/A'}`;
+  const encodedMessage = encodeURICompone
